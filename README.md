@@ -38,7 +38,6 @@ A rule validation API that accept JSON data containing a rule and data field to 
 - Express JS
 - Body-Parser
 - Coveralls
-- Eslint
 - Babel
 - Mocha & Chai
 - Chai
