@@ -1,15 +1,16 @@
 /**
  * Error response
  *
- * @param  {string} error - error string
+ * @param  {string} message - error string
  * @param  {Integer} statusCode - status code
  * @param {any} response - expressJS response object
  * @returns {object} response object
  */
-export const errorResponse = (response, statusCode, error, message) =>
+export const errorResponse = (response, statusCode, message, data = null) =>
   response.status(statusCode).json({
-    status: "fail",
-    message: error,
+    status: "error",
+    message,
+    data,
   });
 
 /**
