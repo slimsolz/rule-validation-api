@@ -6,6 +6,10 @@
   "author": "solomon <odumahs@gmail.com>",
   "license": "MIT",
   "scripts": {
+    "clean": "rm -rf server/dist/ && mkdir server/dist/",
+    "build": "npm run clean && babel server -d server/dist --ignore server/dist",
+    "heroku-postbuild": "npm run build",
+    "start": "export NODE_ENV=production && node server/dist/index.js",
     "start-dev": "nodemon server/index.js --exec babel-node",
     "test": "export NODE_ENV=test || set NODE_ENV=test && nyc --reporter=html --reporter=text mocha server/tests/ --exit --require babel-core/register",
     "test-watch": "nodemon --exec \"yarn test\""

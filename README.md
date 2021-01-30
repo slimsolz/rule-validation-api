@@ -26,7 +26,7 @@ A rule validation API that accept JSON data containing a rule and data field to 
 
 ## Using the Live App
 
-- The live application is hosted at `` (note: don't for get to include`/api/v1/` when sending a request to an endpoint)
+- The live application is hosted at `http://rulevalidation-api.herokuapp.com/api/v1/` (note: don't for get to include`/api/v1/` when sending a request to an endpoint)
 
 ## Testing
 
