@@ -33,7 +33,8 @@ describe("GET /xoxo", () => {
   it("should return 404 and an error message", async () => {
     const res = await chai.request(app).get("/api/v1/xyz");
     expect(res).to.have.status(404);
-    expect(res.body.message).to.be.equal("404 Page not found");
-    expect(res.body.status).to.be.equal("fail");
+    expect(res.body.message).to.be.equal("404 Page not found.");
+    expect(res.body.status).to.be.equal("error");
+    expect(res.body.data).to.be.equal(null);
   });
 });
