@@ -1,0 +1,96 @@
+swagger: '2.0'
+info:
+  version: 1.0.0
+  title: rule-validation
+  description: API for rule-validation-api
+  # My Contact Info
+  contact:
+    email: odumahs@gmail.com
+basePath: /api/v1
+
+# tags are used for organizing operations
+tags:
+- name: base
+  description: Base Route
+- name: validation
+  description: Validation rule route
+
+
+paths:
+  /:
+    get:
+      tags:
+      - base
+      summary: base route
+      description: displays user details
+      produces:
+      - application/json
+      responses:
+        200:
+          description: users details
+          examples:
+            application/json:
+              status: success
+              message: 'My Rule-Validation API'
+              data:
+                  name: "string"
+                  github: "string"
+                  email: "string"
+                  mobile: "number"
+                  twitter: "string"
+  /validate-rule:
+    post:
+      tags:
+      - validation
+      summary: validate data
+      description: validate data
+      produces:
+      - application/json
+      parameters:
+        - name: rule
+          in: body
+          description: The rule to validate with
+          schema:
+            properties:
+              field:
+                type: string
+              condition:
+                type: string
+              condition_value:
+                anyOf:
+                  - type: string
+                  - type: integer
+        - name: data
+          in: body
+          description: The data to validate
+          anyOf:
+            - type: object
+            - type: string
+            - type: array
+      responses:
+        200:
+          description: Success, validate data
+          examples:
+            application/json:
+              status: success
+              message: field "fieldName" successfully validated.
+              data:
+                validation:
+                  error: false,
+                  field: rule.field,
+                  field_value: field_value,
+                  condition: rule.condition,
+                  condition_value: rule.condition_value,
+        400:
+          description: Failed to validate data
+          examples:
+            application/json:
+              status: error
+              message: field "fieldName" failed validation.
+              data:
+                validation:
+                  error: true,
+                  field: rule.field,
+                  field_value: field_value,
+                  condition: rule.condition,
+                  condition_value: rule.condition_value,

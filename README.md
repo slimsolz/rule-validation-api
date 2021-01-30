@@ -6,6 +6,7 @@ A rule validation API that accept JSON data containing a rule and data field to 
 
 - Base Route: `GET /api/v1/`
 - Validate Route: `POST /api/v1/validate-rule`
+- Documentation `GET /api-docs/`
 
 ## Getting Started
 
@@ -27,6 +28,10 @@ A rule validation API that accept JSON data containing a rule and data field to 
 ## Using the Live App
 
 - The live application is hosted at `http://rulevalidation-api.herokuapp.com/api/v1/` (note: don't for get to include`/api/v1/` when sending a request to an endpoint)
+
+## Documentation
+
+- Find app documentation at `http://rulevalidation-api.herokuapp.com/api-docs/`
 
 ## Testing
 
